@@ -3,66 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About | Henry Onyango</title>
+  <title>Henry Onyango | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
- 
 
 </head>
 <body>
-  
-  <header>
+<header id="nav-placeholder"></header>
 
-    
-    
-    <nav>
-      <h1>Henry Onyango</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<script>
+  // load-nav.js - you can also place this inline as shown
+  (async function(){
+    try {
+      const res = await fetch('nav.html');   // adjust path if nav.html is in a different folder
+      if (!res.ok) throw new Error('Nav not found: ' + res.status);
+      const html = await res.text();
+      document.getElementById('nav-placeholder').innerHTML = html;
+
+      // highlight active link
+      const path = location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('#nav-placeholder a');
+      links.forEach(a => {
+        const href = a.getAttribute('href').split('/').pop();
+        if (href === path) a.classList.add('active');
+      });
+    } catch (err) {
+      console.error('Failed to load nav:', err);
+    }
+  })();
+</script>
+
 
   <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I’m <strong>Henry Onyango</strong>, a Full Stack Developer with a First Class Honours Degree in Mathematics and Business Studies with IT from Maseno University. I combine a strong foundation in education with hands-on experience in software development, digital learning tools, and leadership. I'm currently an Assistant Director of Studies and Boarding Master at Odienya Mixed Secondary School, where I teach Mathematics and Business Studies.
-      </p>
-      <p>
-        My professional journey includes an internship at Innodems Company (via the U.S. Embassy), contributing to digital education tools using PreTeXt, STACK, and JSXGraph. I'm also pursuing a CPA Pathway Graduate Certificate while actively building web applications through a Full Stack Development internship at Indolike.
-      </p>
-      <p>
-        I’m passionate about education, technology, and continuous growth. I’ve completed certifications including <strong>Python Training with Africa Agility</strong> and <strong>AI Literacy Training for Educators</strong> at LakeHub Kisumu — further strengthening my technical and instructional capabilities.
-      </p>
-
-
-      <h3>Skills</h3>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Node.js, Express.js</li>
-        <li>MongoDB, MySQL</li>
-        <li>React.js</li>
-        <li>PreTeXt, STACK, Webwork, JSXGraph</li>
-        <li>Microsoft Office, VAT Filing, Payroll & Creditors’ Management</li>
-        <h3>Certifications</h3>
-        <li>Python Training Program – <strong>Africa Agility</strong></li>
-        <li>AI Literacy Training for Educators – <strong>LakeHub, Kisumu</strong></li>
-
-
-      </ul>
-
-      <h3>Personal Values</h3>
-      <p>
-        I believe in the power of education, cultural exchange, and technology to improve lives. My friendly and collaborative approach enables me to build strong relationships with peers, colleagues, and stakeholders.
-      </p>
+    <section class="hero">
+      <h1 style="color:DodgerBlue;">Welcome to My Portfolio</h1>
+      <p></p>
+      <p style="color:black;">I’m Henry Onyango, a Full Stack Developer
+         with a background in Mathematics and Business Studies with IT. <br>I have 
+        a passion for education, technology, and continuous learning.</p>br></p>
+      <a href="projects.html" class="btn">View Projects</a>
     </section>
   </main>
-  
+
   <footer>
-    <p>© 2025 Henry Onyango. All rights reserved.</p>
+    <h3 style="color:Tomato;">© 2025 Henry Onyango. All rights reserved.</h3>
+    <p></p>
   </footer>
 </body>
 </html>
