@@ -30,6 +30,11 @@
                     <a href="admin.html" class="nav-link active">Admin</a>
                 </li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
@@ -104,5 +109,14 @@
             <p>&copy; 2025 Henry Onyango. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+</script>
 </body>
 </html>
