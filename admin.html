@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="background-wrapper">
+        <div class="background-overlay"></div>
+    </div>
     <!-- Updated navigation to match modern design -->
     <nav class="navbar">
         <div class="nav-container">
@@ -105,6 +108,7 @@
             </div>
         </div>
         
+        
     </section>
 
     <!-- Footer -->
@@ -123,28 +127,28 @@
         });
     </script>
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Handle Edit
-        document.querySelectorAll(".edit-btn").forEach(button => {
-            button.addEventListener("click", () => {
-                let title = button.closest("tr").querySelector("td").innerText;
-                alert("Editing project: " + title);
-                // 👉 Here you can open a form or modal to update project details
+        document.addEventListener("DOMContentLoaded", () => {
+            // Handle Edit
+            document.querySelectorAll(".edit-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    let title = button.closest("tr").querySelector("td").innerText;
+                    alert("Editing project: " + title);
+                    // 👉 Here you can open a form or modal to update project details
+                });
             });
-        });
 
-        // Handle Delete
-        document.querySelectorAll(".delete-btn").forEach(button => {
-            button.addEventListener("click", () => {
-                let row = button.closest("tr");
-                let title = row.querySelector("td").innerText;
-                if (confirm("Are you sure you want to delete " + title + "?")) {
-                    row.remove();
-                }
+            // Handle Delete
+            document.querySelectorAll(".delete-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    let row = button.closest("tr");
+                    let title = row.querySelector("td").innerText;
+                    if (confirm("Are you sure you want to delete " + title + "?")) {
+                        row.remove();
+                    }
+                });
             });
         });
-    });
-</script>
+   </script>
 
 </body>
 </html>
