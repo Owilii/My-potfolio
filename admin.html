@@ -47,55 +47,59 @@
             </div>
 
             <div class="admin-content">
-                <div class="admin-card">
-                    <h3 style="color:blue">Existing Projects</h3>
-                    <div class="table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Sample Project</td>
-                                    <td>
-                                        <button class="btn btn-secondary btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="admin-card card shadow p-3 mb-4">
+                <h3 class="text-primary mb-3" style="color:blue">Existing Projects</h3>
+                <div class="table-container table-responsive">
+                    <table class="admin-table table table-striped table-bordered align-middle">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Title</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sample Project</td>
+                                <td class="text-center">
+                                    <button class="btn btn-secondary btn-sm edit-btn">Edit</button>
+                                    <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+
+
+
+            <div class="admin-card">
+                <h2 style="color:blue">Add a New Project</h2>
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="blink" required>
                     </div>
-                </div>
 
-                <div class="admin-card">
-                    <h2 style="color:blue">Add a New Project</h2>
-                    <form class="admin-form">
-                        <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" name="title" required>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="description">Description:</label>
-                            <textarea id="description" name="description" rows="4" required></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4" ></textarea>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="project-url">Project URL:</label>
-                            <input type="url" id="project-url" name="project-url">
-                        </div>
+                    <div class="form-group">
+                        <label for="project-url">Project URL:</label>
+                        <input type="url" id="project-url" name="project-url" class="blink" required>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="image-url">Image URL:</label>
-                            <input type="url" id="image-url" name="image-url">
-                        </div>
+                    <div class="form-group">
+                        <label for="image-url">Image URL:</label>
+                        <input type="url" id="image-url" name="image-url" class="blink" required>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary">Add Project</button>
-                    </form>
-                </div>
+                    <button type="submit" class="btn btn-primary">Add Project</button>
+                </form>
+            </div>
                 
         </div>
             </div>
@@ -117,6 +121,30 @@
             navMenu.classList.toggle("active");
             hamburger.classList.toggle("active");
         });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Handle Edit
+        document.querySelectorAll(".edit-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                let title = button.closest("tr").querySelector("td").innerText;
+                alert("Editing project: " + title);
+                // 👉 Here you can open a form or modal to update project details
+            });
+        });
+
+        // Handle Delete
+        document.querySelectorAll(".delete-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                let row = button.closest("tr");
+                let title = row.querySelector("td").innerText;
+                if (confirm("Are you sure you want to delete " + title + "?")) {
+                    row.remove();
+                }
+            });
+        });
+    });
 </script>
+
 </body>
 </html>

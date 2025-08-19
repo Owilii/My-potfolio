@@ -498,6 +498,8 @@ ul li a:hover{
   padding: 2rem;
   border-radius: 12px;
   height: fit-content;
+  border: 3px solid var(--primary-color);
+
 }
 
 .skills-section,
@@ -661,9 +663,34 @@ ul li a:hover{
   border: 2px solid var(--primary-color);
 }
 
+.project-card {
+  border: 2px solid var(--primary-color);
+}
+
 .project-card.coming-soon {
   opacity: 0.8;
 }
+
+.live {
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    margin-top: 15px;         /* adds space above */
+}
+
+.project-link.secondary {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #007bff;  /* blue button */
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.project-link.secondary:hover {
+    background: #0056b3; /* darker blue on hover */
+}
+
 
 /* ===================================
    9. CTA SECTION
@@ -775,12 +802,14 @@ ul li a:hover{
   background: var(--background-light);
   padding: 2rem;
   border-radius: 12px;
+  border: 1px solid var(--primary-color);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  
 }
 
 .form-group {
@@ -843,6 +872,8 @@ ul li a:hover{
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  border: 1px solid var(--primary-color);
+
 }
 
 .admin-card h2,
@@ -1129,6 +1160,20 @@ ul li a:hover{
 }
 
 /* Mobile view */
+@keyframes blinkBorder {
+    0%   { border-color: #00ff15; }
+    50%  { border-color: transparent; }
+    100% { border-color: #007bff; }
+}
+
+input.blink {
+    border: 1px solid #00ff22;
+    animation: blinkBorder 1s infinite;
+    outline: none;
+    padding: 8px;
+    border-radius: 6px;
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -1164,4 +1209,53 @@ ul li a:hover{
     .hamburger.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
+}
+
+.certifications-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.section-title {
+    color: #1e3a8a; /* nice deep blue */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.cert-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-left: 4px solid #1e3a8a;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.cert-item h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1e3a8a;
+}
+
+.cert-item p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.cert-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background: #1e3a8a;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.cert-link:hover {
+    background: #374151;
 }
