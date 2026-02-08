@@ -850,6 +850,7 @@ ul li a:hover{
 
 .form-group textarea {
   resize: vertical;
+  
   min-height: 120px;
 }
 
